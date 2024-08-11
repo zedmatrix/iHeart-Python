@@ -9,8 +9,15 @@ def print_keylist():
             R_len = 0
         print(f"Key: {i} ,Length: {R_len} ,Type: {R_type}")
 
+parser = argparse.ArgumentParser(description="Process some arguments.")
+parser.add_argument('arg1', type=str, help='The first argument')
+args = parser.parse_args()
+
+print(f"Argument received: {args.arg1}")
+
 url = "http://api2.iheart.com/api/v1/catalog/searchAll"
-search = "oldies+60s"
+#search = "60s+70s"
+search = args.arg1
 parameters = (
     f'?&keywords={search}'
     )
@@ -40,17 +47,17 @@ else:
     Tx = len(tracks)
     Ty = type(tracks)
     print(f"Tracks: Length: {Tx} // Type: {Ty}")
-    print(tracks)
-    for i in range(Tx):
-        mini = tracks[i]
-        title = f"{mini['title']}"
-        artist = f"{mini['artist']}"
-        album = f"{mini['album']}"
-        stream = f'{mini['streamReady']}'
-        preview = f'{mini['previewPath']}'
+    #print(tracks)
+    #for i in range(Tx):
+    #    mini = tracks[i]
+    #    title = f"{mini['title']}"
+    #    artist = f"{mini['artist']}"
+    #    album = f"{mini['album']}"
+    #    stream = f'{mini['streamReady']}'
+    #    preview = f'{mini['previewPath']}'
         #print(f'{stream}:{title} - {artist} - {album}')
-        print(f'{stream}:{title} - {preview}')
-    print("======================\n")
+    #    print(f'{stream}:{title} - {preview}')
+    #print("======================\n")
 
     stations = results['stations']
     Sx = len(stations)
