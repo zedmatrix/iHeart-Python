@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import urllib, requests, json, argparse
 
 def print_keylist():
