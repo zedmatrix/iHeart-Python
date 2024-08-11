@@ -1,10 +1,17 @@
-import requests, functools, subprocess
+#!/usr/bin/env python3
+import requests, functools, subprocess, argparse
 
 # Define the API endpoint
 url = "https://api.iheart.com/api/v2/content/liveStations/"
 
+# Allow arguments to the search variable
+parser = argparse.ArgumentParser(description="Process some arguments.")
+parser.add_argument('arg1', type=str, help='The first argument')
+args = parser.parse_args()
+
+print(f"Argument received: {args.arg1}")
 # Send the GET request
-search = '5235'
+search = args.arg1
 response = requests.get(url + search)
 
 # Check if the request was successful
